@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Slugify service{% endblock %}
+
+{% block body %}
+<style>
+</style>
+
+    <h1>Slugify</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.phrase) }}
+    <button type="submit">Slugify</button>
+    {{ form_end(form) }}
+
+    {% if slug is defined %}
+        <h2>Résultat :</h2>
+        <p>{{ slug }}</p>
+    {% endif %}
+
+
+{% endblock %}
