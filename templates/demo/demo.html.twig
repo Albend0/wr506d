@@ -1,0 +1,15 @@
+{% block content %}
+    <h1 id="title">{{ 'now'|format_datetime('full', locale='fr', timezone='Europe/Paris') }}</h1>
+
+    <style>
+        #title {
+            text-align: center;
+            margin-top: 100px;
+            font-family: "Arial Black", serif;
+        }
+    </style>
+{% endblock %}
+
+
+
+
