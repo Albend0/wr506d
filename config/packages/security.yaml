@@ -41,10 +41,13 @@ security:
         # - { path: ^/profile, roles: ROLE_USER }
          - { path: ^/api/login, roles: PUBLIC_ACCESS }
          - { path: ^/api/users, roles: PUBLIC_ACCESS }
-         - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }
+         - { path: ^/api,       roles: PUBLIC_ACCESS }
 
 when@test:
     security:
+        role_hierarchy:
+            ROLE_USER: [ ROLE_MEMBER ]
+            ROLE_ADMIN: [ ROLE_USER ]
         password_hashers:
             # By default, password hashers are resource intensive and take time. This is
             # important to generate secure password hashes. In tests however, secure hashes
