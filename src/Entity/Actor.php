@@ -11,9 +11,10 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ActorRepository::class)]
-#[ApiResource]
+#[ApiResource(paginationType: 'page')]
 #[ApiFilter(SearchFilter::class, properties: ['lastname' => 'partial','firstname' => 'partial', "movies.title" => 'partial'])]
 
 #[ApiFilter(DateFilter::class, properties: ['date_of_birth'])]
@@ -28,6 +29,7 @@ class Actor
     private ?string $lastname = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\NotBlank]
     private ?string $firstname = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
@@ -36,8 +38,14 @@ class Actor
     #[ORM\ManyToMany(targetEntity: Movie::class, mappedBy: 'actor', cascade: ['persist'])]
     private Collection $movies;
 
-    #[ORM\Column]
+    #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable: true)]
     private ?\DateTimeImmutable $createdAt = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $reward = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $nationality = null;
 
     public function __construct()
     {
@@ -122,6 +130,30 @@ class Actor
     public function setCreatedAt(\DateTimeImmutable $createdAt): static
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getReward(): ?string
+    {
+        return $this->reward;
+    }
+
+    public function setReward(?string $reward): static
+    {
+        $this->reward = $reward;
+
+        return $this;
+    }
+
+    public function getNationality(): ?string
+    {
+        return $this->nationality;
+    }
+
+    public function setNationality(string $nationality): static
+    {
+        $this->nationality = $nationality;
 
         return $this;
     }

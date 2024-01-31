@@ -1,6 +1,8 @@
 <?php
+
 # api/src/Entity/User.php
 namespace App\Entity;
+
 use ApiPlatform\Metadata\ApiFilter;
 use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
@@ -18,6 +20,7 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
+
 #[ApiResource(
     operations: [
         new GetCollection(),
@@ -52,6 +55,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $plainPassword = null;
     #[ORM\Column(type: 'json')]
     private array $roles = [];
+
     public function getId(): ?int
     {
         return $this->id;

@@ -14,15 +14,21 @@ class SlugifyFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('phrase', TextType::class, [
+            ->add(
+                'phrase',
+                TextType::class,
+                [
                 'label' => 'Entrez la phrase à slugifier :',
-            ]);
+                ]
+            );
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults([
+        $resolver->setDefaults(
+            [
             'data_class' => null,
-        ]);
+            ]
+        );
     }
 }

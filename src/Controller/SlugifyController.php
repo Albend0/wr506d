@@ -24,9 +24,12 @@ class SlugifyController extends AbstractController
             $slug = $slugifyService->slugify($phrase);
         }
 
-        return $this->render('slugify/index.html.twig', [
+        return $this->render(
+            'slugify/index.html.twig',
+            [
             'form' => $form->createView(),
             'slug' => $slug,
-        ]);
+            ]
+        );
     }
 }
