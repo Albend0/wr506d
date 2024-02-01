@@ -3,7 +3,8 @@
 ## Installation
 Download Composer and use the composer binary installed on your computer
 
-Run : '''git clone https://github.com/Albend0/wr506d.git my_project'''
+Run : 
+```git clone https://github.com/Albend0/wr506d.git my_project```
 ```
 $ cd my_project/
 $ composer install
