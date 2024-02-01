@@ -16,17 +16,8 @@ $ php bin/console doctrine:migrations:migrate
 ## Usage
 There's no need to configure anything before running the application. There are 2 different ways of running this application depending on your needs:
 
-Option 1. Download Symfony CLI and run this command:
+Download Symfony CLI and run this command:
 ```
-$ cd my_project/
+$ cd wr506d/
 $ symfony server:start
-```
-Then access the application in your browser at the given URL (http://127.0.0.1:8000/ by default).
-
-Option 2. Use a web server like Nginx or Apache to run the application (read the documentation about configuring a web server for Symfony).
-
-On your local machine, you can run this command to use the built-in PHP web server:
-```
-$ cd my_project/
-$ php -S localhost:8000 -t public/
 ```
