@@ -1,9 +1,8 @@
 # Symfony Movie App 
 
 ## Installation
-Download Composer and use the composer binary installed on your computer :
+Download Composer and use the composer binary installed on your computer
 
-# you can clone the code repository and install its dependencies
 $ git clone https://github.com/Albend0/wr506d.git my_project
 ```
 $ cd my_project/
